@@ -22,7 +22,14 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80; // height of fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setMobileMenuOpen(false);
   };
@@ -106,7 +113,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
             <button
               id="cart-btn-mobile"
               onClick={onCartOpen}
-              className="relative p-2 rounded-full bg-white/5 text-white"
+              className="relative p-2 rounded-full bg-white/5 text-white active:scale-95 transition-transform duration-150 cursor-pointer"
             >
               <ShoppingBag className="w-5 h-5" />
               {cartCount > 0 && (
@@ -118,7 +125,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
             <button
               id="mobile-drawer-btn"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full bg-white/5 text-white"
+              className="p-2 rounded-full bg-white/5 text-white active:scale-120 transition-transform duration-150 cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -142,7 +149,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
                   key={link.title}
                   href={link.href}
                   onClick={(e) => handleScroll(e, link.href)}
-                  className="block px-3 py-2 text-base font-outfit text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all"
+                  className="block px-3 py-2 text-base font-outfit text-gray-300 hover:text-white hover:bg-white/5 rounded-xl transition-all cursor-pointer"
                 >
                   {link.title}
                 </a>
@@ -153,7 +160,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
                     setMobileMenuOpen(false);
                     onCartOpen();
                   }}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 text-white text-sm font-outfit"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 text-white text-sm font-outfit cursor-pointer active:bg-white/10"
                 >
                   <span>Mon Panier ({cartCount})</span>
                   <ShoppingBag className="w-5 h-5" />
@@ -161,9 +168,15 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    window.location.hash = '#menu';
+                    const menuEl = document.querySelector('#menu');
+                    if (menuEl) {
+                      const headerOffset = 80;
+                      const elementPosition = menuEl.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
                   }}
-                  className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-yellow text-[#1e0b0c] font-outfit font-semibold text-sm"
+                  className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-yellow text-[#1e0b0c] font-outfit font-semibold text-sm cursor-pointer active:scale-[0.98] transition-transform"
                 >
                   Commander Maintenant
                   <ChevronRight className="w-4 h-4" />
