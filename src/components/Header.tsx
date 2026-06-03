@@ -22,14 +22,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const headerOffset = 80; // height of fixed header
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
     setMobileMenuOpen(false);
   };
@@ -170,10 +163,7 @@ export default function Header({ cartCount, onCartOpen, activeSection }: HeaderP
                     setMobileMenuOpen(false);
                     const menuEl = document.querySelector('#menu');
                     if (menuEl) {
-                      const headerOffset = 80;
-                      const elementPosition = menuEl.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                      menuEl.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
                   className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-brand-yellow text-[#1e0b0c] font-outfit font-semibold text-sm cursor-pointer active:scale-[0.98] transition-transform"

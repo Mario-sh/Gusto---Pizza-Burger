@@ -7,7 +7,7 @@ interface ReviewSectionProps {
 
 export default function ReviewSection({ reviews }: ReviewSectionProps) {
   return (
-    <section id="avis" className="py-20 bg-brand-cream relative overflow-hidden text-brand-dark">
+    <section id="avis" className="py-20 bg-brand-cream relative overflow-hidden text-brand-dark scroll-mt-20">
       {/* Dynamic Background dots and accents */}
       <div className="absolute top-1/2 left-10 w-24 h-24 bg-brand-yellow/10 rounded-full blur-xl pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-32 h-32 bg-brand-red/5 rounded-full blur-xl pointer-events-none" />

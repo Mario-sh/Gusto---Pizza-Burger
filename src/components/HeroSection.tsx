@@ -9,7 +9,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onOrderSpecial, specialItem }: HeroSectionProps) {
   return (
-    <section id="accueil" className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden hero-gradient text-white">
+    <section id="accueil" className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden hero-gradient text-white scroll-mt-20">
       {/* Dynamic Background decoratives */}
       <div className="absolute top-1/4 left-5 w-72 h-72 bg-brand-red/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 right-5 w-96 h-96 bg-brand-yellow/5 rounded-full blur-3xl pointer-events-none" />

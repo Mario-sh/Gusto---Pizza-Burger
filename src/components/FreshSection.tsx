@@ -9,7 +9,7 @@ interface FreshSectionProps {
 
 export default function FreshSection({ onOrderSpecial, trioItem }: FreshSectionProps) {
   return (
-    <section id="specialites" className="relative py-24 bg-brand-cream overflow-hidden">
+    <section id="specialites" className="relative py-24 bg-brand-cream overflow-hidden scroll-mt-20">
       
       {/* Background blobs for orange splash */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[35%] bg-amber-400/25 blur-[120px] rounded-full pointer-events-none z-0" />

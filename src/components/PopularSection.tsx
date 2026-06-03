@@ -34,7 +34,7 @@ export default function PopularSection({ items, onSelectItem }: PopularSectionPr
   };
 
   return (
-    <section id="menu" className="py-24 bg-white relative overflow-hidden">
+    <section id="menu" className="py-24 bg-white relative overflow-hidden scroll-mt-20">
       
       {/* Ketchup bottom splash decorative element */}
       <div className="absolute -bottom-1 left-0 right-0 h-24 bg-gradient-to-t from-brand-red/10 to-transparent pointer-events-none" />
