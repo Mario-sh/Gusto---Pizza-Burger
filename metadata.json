@@ -1,0 +1,6 @@
+{
+  "name": "Gusto - Pizza & Burger",
+  "description": "Gusto est un site de restauration rapide premium proposant de délicieux burgers savoureux et des pizzas croustillantes, chaudes et fraîches.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
